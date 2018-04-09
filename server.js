@@ -11,7 +11,6 @@ console.log(`port is: ${port}`)
 //Making new express app
 const app = express()
 
-
 hbs.registerPartials(__dirname + '/views/partials')
 
 app.set('view engine', 'hbs')
@@ -30,9 +29,9 @@ app.use((req, res, next) => {
   next()
 })
 
-app.use((req, res, next) => {
-  res.render('maintenance.hbs')
-})
+// app.use((req, res, next) => {
+//   res.render('maintenance.hbs')
+// })
 
 hbs.registerHelper('getCurrentYear', () => {
    return new Date().getFullYear()
@@ -69,6 +68,12 @@ app.get('/about', (req, res) => {
   res.render('about.hbs', {
     pageTitle: 'About Page',
 
+  })
+})
+
+app.get('/projects', (req, res) => {
+  res.render('projects.hbs', {
+    pageTitle: 'Projects Page',
   })
 })
 
