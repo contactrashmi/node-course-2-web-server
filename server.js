@@ -3,6 +3,11 @@ const express = require('express')
 const hbs = require('hbs')
 const fs = require('fs')
 
+var port = process.env.PORT || 3000
+
+console.log(`port is: ${port}`)
+
+
 //Making new express app
 const app = express()
 
@@ -75,6 +80,6 @@ app.get('/bad', (req, res) => {
 
 
 //second parameter of listen is optional
-app.listen(8080, () => {
- console.log('Server is up and running');
+app.listen(port, () => {
+ console.log(`Server is up and running ${port}`);
 })
